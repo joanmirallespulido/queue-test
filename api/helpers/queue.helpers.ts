@@ -13,6 +13,7 @@ export class RequestQueue {
     constructor() {
         this.queue = [];
         this.done = false;
+
     }
 
     enqueue(endpoint: any, data: any) {
