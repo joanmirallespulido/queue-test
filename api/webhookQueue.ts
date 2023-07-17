@@ -12,7 +12,6 @@ export const webHookQueue = async () => {
 
 
     while (true) {
-        console.log('bucle')
         const webhooks = await Webhook.find({ status: 'pending' });
 
         if (webhooks.length == 0) {
@@ -20,7 +19,6 @@ export const webHookQueue = async () => {
             continue;
         }
 
-        // const webhook = webhooks[0];
         console.log('GO')
         webhooks.forEach(async (webhook: any) => {
 
@@ -47,7 +45,6 @@ export const webHookQueue = async () => {
                 }
 
             } catch (error: any) {
-                // console.log(error)
                 webhook.status = 'pending';
                 webhook.lastAttempt = new Date();
                 webhook.nextAttempt = new Date(new Date().getTime() + WebhookConfig.retry[webhook.attempts]);
