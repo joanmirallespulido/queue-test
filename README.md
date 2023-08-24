@@ -8,3 +8,5 @@ If it reaches the maximum amount of attempts it is marked as error and won´t be
 
 This project was built for a microservice so it ensure to notify the main server about the completion of a payment.
 
+The logic of the Queue can be found in the webhookQueue.ts file.
+
